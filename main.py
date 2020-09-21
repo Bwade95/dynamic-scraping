@@ -2,10 +2,10 @@ import requests
 import os
 
 class Unsplash:
-  def __init__(self,search_term,per_page,page,quality):
+  def __init__(self,search_term,per_page,quality):
     self.search_term = search_term
     self.per_page = per_page
-    self.page = 0
+    self.pages = 0
     self.quality = quality
     self.headers = {
       "Accept":	"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -16,7 +16,7 @@ class Unsplash:
     }
 
   def set_url(self):
-    return f"https://unsplash.com/napi/search?query={self.search_term}&xp=&per_page={self.per_page}&page={self.page}"
+    return f"https://unsplash.com/napi/search?query={self.search_term}&xp=&per_page={self.per_page}&page={self.pages}"
 
   def make_request(self):
     url = self.set_url()
@@ -46,8 +46,8 @@ class Unsplash:
         self.download(url,name)
         self.pages += 1
 
-scraper = Unsplash("cat","20","1","thumb")
-scraper.scraper(1)
+scraper = Unsplash("cat","20","thumb")
+scraper.scraper(2)
 
 
     

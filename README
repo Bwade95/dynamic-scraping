@@ -1,0 +1,3 @@
+A dynamic web scraping script currently only for UnSplash
+
+To use: initiate Scraper class and call how many pages you want to scrape using scrape function in scraper class
